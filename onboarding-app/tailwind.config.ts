@@ -51,7 +51,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("flyonui"), require("flyonui/plugin")],
+  plugins: [require("flyonui")],
   flyonui: {
     themes: [
       {

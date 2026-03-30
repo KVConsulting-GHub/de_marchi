@@ -3,7 +3,23 @@
 
 @import "tailwindcss";
 @plugin "flyonui";
-@plugin "flyonui/plugin";
+
+/* ─ Tema DeMarchi — sobrescreve variáveis FlyonUI/DaisyUI ─────────────── */
+:root, [data-theme="light"] {
+  --color-primary:         #26CCAA;
+  --color-primary-content: #ffffff;
+  --color-secondary:       #1E2D52;
+  --color-secondary-content: #ffffff;
+  --color-accent:          #0099F4;
+  --color-base-100:        #FFFFFF;
+  --color-base-200:        #F4F6F9;
+  --color-base-300:        #E8ECF2;
+  --color-base-content:    #1A1A2E;
+  --color-success:         #26CCAA;
+  --color-warning:         #F59E0B;
+  --color-error:           #EF4444;
+  --color-info:            #0099F4;
+}
 
 @theme {
   /* ─ Marca DeMarchi ─────────────────────────────────── */
