@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+@import "tailwindcss";
+@plugin "flyonui";
+@plugin "flyonui/plugin";
+
+@theme {
+  /* ─ Marca DeMarchi ─────────────────────────────────── */
+  --color-primary:        #26CCAA;
+  --color-primary-dark:   #1B8C76;
+  --color-secondary:      #1E2D52;
+  --color-secondary-mid:  #273A6A;
+  --color-accent:         #0099F4;
+
+  /* ─ Texto (5 níveis) ────────────────────────────────── */
+  --color-text-high:      #1A1A2E;          /* 100% — títulos, valores */
+  --color-text-default:   rgba(26,26,46,.92); /* 92% — corpo principal */
+  --color-text-medium:    rgba(26,26,46,.78); /* 78% — parágrafos secundários */
+  --color-text-muted:     rgba(26,26,46,.55); /* 55% — metadados, timestamps */
+  --color-text-faint:     rgba(26,26,46,.30); /* 30% — placeholder, disabled */
+
+  /* ─ Superfícies (tema light) ───────────────────────── */
+  --color-bg-base:        #FFFFFF;
+  --color-bg-subtle:      #F4F6F9;
+  --color-bg-surface:     #E8ECF2;
+  --color-bg-raised:      #D8DDE8;
+
+  /* ─ Semânticas ──────────────────────────────────────── */
+  --color-success:        #26CCAA;
+  --color-warning:        #F59E0B;
+  --color-danger:         #EF4444;
+  --color-info:           #0099F4;
+
+  /* ─ Tipografia ──────────────────────────────────────── */
+  --font-sans:  'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:  'JetBrains Mono', 'Fira Code', monospace;
+
+  /* ─ Escala modular 16px × 1.333 ────────────────────── */
+  --fs-display: 50px;
+  --fs-h1:      38px;
+  --fs-h2:      28px;
+  --fs-h3:      23px;
+  --fs-h4:      21px;
+  --fs-body:    16px;
+  --fs-small:   12px;
+  --fs-label:   10px;
+  --fs-micro:   9px;
+
+  /* ─ Espaçamento base-4 ──────────────────────────────── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  /* ─ Border radius ───────────────────────────────────── */
+  --radius-xs:   2px;
+  --radius-sm:   4px;
+  --radius-md:   6px;
+  --radius-lg:   8px;
+  --radius-xl:   12px;
+  --radius-2xl:  16px;
+  --radius-pill: 9999px;
+
+  /* ─ Motion ──────────────────────────────────────────── */
+  --duration-fast:  100ms;
+  --duration-base:  150ms;
+  --duration-slow:  250ms;
+  --duration-enter: 300ms;
+  --duration-page:  400ms;
+  --ease-out:       cubic-bezier(0, 0, 0.2, 1);
+  --ease-in:        cubic-bezier(0.4, 0, 1, 1);
+  --ease-in-out:    cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─ Reset & Base ─────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--color-text-default);
+  background-color: var(--color-bg-subtle);
+}
+
+/* ─ Scrollbar customizada ───────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--color-bg-surface); }
+::-webkit-scrollbar-thumb { background: #C8D0DC; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #273A6A; }
+
+/* ─ Animações ────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(38, 204, 170, 0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(38, 204, 170, 0); }
+}
+
+.animate-fade-in   { animation: fadeIn  0.4s var(--ease-out) forwards; }
+.animate-slide-in  { animation: slideIn 0.3s var(--ease-out) forwards; }
+.animate-cta-pulse { animation: ctaPulse 2.5s ease-in-out infinite; }
+
+/* ─ Reduced motion ───────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ─ Utilitários DeMarchi ─────────────────────────────── */
+.text-brand-primary   { color: var(--color-primary); }
+.text-brand-secondary { color: var(--color-secondary); }
+.bg-brand-primary     { background-color: var(--color-primary); }
+.bg-brand-secondary   { background-color: var(--color-secondary); }
+
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: var(--radius-lg);
+  color: rgba(255,255,255,0.65);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background var(--duration-base) var(--ease-out),
+              color var(--duration-base) var(--ease-out);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.sidebar-nav-item:hover {
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.9);
+}
+
+.sidebar-nav-item.active {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.phase-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  position: relative;
+}
+
+.phase-step::after {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: calc(50% + 16px);
+  right: calc(-50% + 16px);
+  height: 2px;
+  background: var(--color-bg-surface);
+  z-index: 0;
+}
+
+.phase-step:last-child::after { display: none; }
+
+.phase-step.completed::after  { background: var(--color-primary); }
