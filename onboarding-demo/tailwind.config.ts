@@ -52,30 +52,6 @@ const config: Config = {
     },
   },
   plugins: [require("flyonui")],
-  flyonui: {
-    themes: [
-      {
-        demarchi: {
-          primary: "#26CCAA",
-          "primary-content": "#ffffff",
-          secondary: "#1E2D52",
-          "secondary-content": "#ffffff",
-          accent: "#0099F4",
-          "accent-content": "#ffffff",
-          neutral: "#D8DDE8",
-          "neutral-content": "#1A1A2E",
-          "base-100": "#FFFFFF",
-          "base-200": "#F4F6F9",
-          "base-300": "#E8ECF2",
-          "base-content": "#1A1A2E",
-          info: "#0099F4",
-          success: "#26CCAA",
-          warning: "#F59E0B",
-          error: "#EF4444",
-        },
-      },
-    ],
-  },
 };
 
 export default config;
