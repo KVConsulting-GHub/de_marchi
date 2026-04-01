@@ -15,14 +15,12 @@ export type {
 export { CHECKLIST_SEED as CHECKLIST_PADRAO } from "@/lib/mock/data";
 
 import { useStore } from "@/lib/mock/store";
+import type { Client, ClientType } from "@/lib/mock/data";
 
 // ─ Criar cliente ──────────────────────────────────────────────────────────────
 
 export async function createClient(
-  data: import("@/lib/mock/data").Omit<
-    import("@/lib/mock/data").Client,
-    "id" | "criadoEm"
-  >
+  data: Omit<Client, "id" | "criadoEm">
 ): Promise<string> {
   return useStore.getState().createClient(data);
 }
@@ -31,7 +29,7 @@ export async function createClient(
 
 export async function createOnboardingProcess(
   clientId: string,
-  tipo: import("@/lib/mock/data").ClientType
+  tipo: ClientType
 ): Promise<string> {
   return useStore.getState().createProcess(clientId, tipo);
 }
