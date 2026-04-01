@@ -55,7 +55,6 @@ export function PhaseTimeline({
                   borderColor: !completed && !active ? "#C8D0DC" : undefined,
                   color:
                     !completed && !active ? "rgba(26,26,46,0.4)" : undefined,
-                  ringColor: active ? "rgba(38,204,170,0.25)" : undefined,
                   boxShadow: active
                     ? "0 0 0 4px rgba(38,204,170,0.2)"
                     : selected && !active
